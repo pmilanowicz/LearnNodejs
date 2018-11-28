@@ -1,0 +1,18 @@
+version: '3'
+
+services:
+  redis-server:
+    container_name: 'learn-nodejs-redis-server'
+    image: 'redis'
+
+  node-server:
+    container_name: 'learn-nodejs-node-server'
+    build: ./app
+    restart: always
+    volumes:
+      - /app/node_modules
+      - ./app:/app
+    links:
+      - redis-server:redis.localhost
+    ports:
+      - "8200:8200"
