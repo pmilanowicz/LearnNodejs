@@ -16,6 +16,13 @@ app.get('/', (req, res) => {
     });
 });
 
+app.get('/users', (req, res) => {
+    const html = '<ul><li>User 1-2</li><li>User 2</li></ul>';
+
+    res.send(html);
+});
+
+
 app.listen(8200, () => {
     console.log('Listening on port 8200');
 });

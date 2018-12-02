@@ -7,7 +7,9 @@ services:
 
   node-server:
     container_name: 'learn-nodejs-node-server'
-    build: ./app
+    build:
+      context: ./app
+      dockerfile: ./Dockerfile.dev
     restart: always
     volumes:
       - /app/node_modules
